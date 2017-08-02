@@ -71,6 +71,25 @@ Ask the team for access to the following services to begin contributing:
 1. Ensure that your <github username>@circleci.com and generated ssh key show up on heroku (https://dashboard.heroku.com/account)
 1. Click rebuild if necessary
 
+### Occasional Care and Maintenance
+
+#### Update Gems
+
+Occasionally, it's wise to update the library dependencies used in this app.
+
+    `bundle update --conservative`
+
+#### Update Zipcode-to-County Lookup Table
+
+We are using [my_zipcode_gem] to lookup county names from the zipcode.
+This library creates a local set of db tables for looking this data up quickly.
+
+[my_zipcode_gem]: https://github.com/midwire/my_zipcode_gem
+
+It is necessary to run the update Rake task occasionally (takes about 5 mins)
+
+    `bin/rails zipcodes:update`
+
 ## What's Included
 
 ### Spec Helpers
