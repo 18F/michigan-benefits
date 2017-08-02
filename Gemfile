@@ -10,6 +10,7 @@ gem "delayed_job_active_record"
 gem "faraday"
 gem "haml", "~> 5.0"
 gem "jquery-rails"
+gem "my_zipcode_gem"
 gem "neat", "~> 1.8" # to keep in sync with getcalfresh
 gem "paperclip", "~> 5.0.0"
 gem "pdf-forms"
@@ -31,6 +32,7 @@ gem "uglifier", ">= 1.3.0"
 group :test do
   gem "database_cleaner"
   gem "faker"
+  gem "mocha" # needed for zipcode stuff?
   gem "pdf-reader"
   gem "rails-controller-testing"
 end
