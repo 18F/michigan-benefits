@@ -14,7 +14,7 @@ class CreateMyZipcodeGemModels < ActiveRecord::Migration[5.1]
     add_index :zipcodes, :code
     add_index :zipcodes, :county_id
     add_index :zipcodes, :state_id
-    add_index :zipcodes, %i(:lat, :lon)
+    add_index :zipcodes, %i(lat lon)
 
     # States Table
     create_table :states do |t|
