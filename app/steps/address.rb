@@ -15,8 +15,7 @@ class Address < Step
   validates :city,
     presence: { message: "Make sure to provide a city" }
 
-  validates :county,
-    presence: { message: "Make sure to provide a county" }
+  validates :county, presence: true
 
   validates :state,
     presence: { message: "Make sure to provide a state" }

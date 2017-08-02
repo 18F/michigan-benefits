@@ -20,7 +20,6 @@ RSpec.describe AddressController, type: :controller do
 
       expect(step.street_address).to eq("123 Fake St")
       expect(step.city).to eq("Springfield")
-      expect(step.county).to eq("Genesee")
       expect(step.zip).to eq("12345")
       expect(step.state).to eq("MI")
     end
@@ -28,17 +27,14 @@ RSpec.describe AddressController, type: :controller do
 
   describe "#update" do
     context "when valid" do
-      let(:valid_params) do
-        {
-          street_address: "321 Real St",
-          city: "Shelbyville",
-          zip: "54321",
-          county: "Genesee",
-          state: "MI",
-        }
-      end
-
       it "updates the app" do
+        valid_params = {
+          street_address: "125 E Union St",
+          city: "Flint",
+          state: "MI",
+          zip: "48502",
+        }
+
         put :update, params: { step: valid_params }
 
         current_app.reload
@@ -48,7 +44,35 @@ RSpec.describe AddressController, type: :controller do
         end
       end
 
+      context "when the zipcode is provided" do
+        it "assigns the county name based on the zipcode" do
+          valid_params = {
+            street_address: "125 E Union St",
+            city: "Flint",
+            state: "MI",
+            zip: "48502",
+          }
+
+          put :update, params: { step: valid_params }
+
+          current_app.reload
+
+          expect(step.street_address).to eq valid_params.fetch(:street_address)
+          expect(step.city).to eq valid_params.fetch(:city)
+          expect(step.state).to eq valid_params.fetch(:state)
+          expect(step.zip).to eq valid_params.fetch(:zip)
+          expect(step.county).to eq("Genesee")
+        end
+      end
+
       it "redirects to the next step" do
+        valid_params = {
+          street_address: "125 E Union St",
+          city: "Flint",
+          state: "MI",
+          zip: "48502",
+        }
+
         put :update, params: { step: valid_params }
 
         expect(response).to redirect_to("/steps/sign-and-submit")
@@ -67,7 +91,6 @@ RSpec.describe AddressController, type: :controller do
     @_current_app ||= SnapApplication.create!(
       street_address: "123 Fake St",
       city: "Springfield",
-      county: "Genesee",
       zip: "12345",
       state: "MI",
     )
