@@ -47,21 +47,18 @@ RSpec.describe AddressController, type: :controller do
       context "when the zipcode is provided" do
         it "assigns the county name based on the zipcode" do
           valid_params = {
-            street_address: "125 E Union St",
-            city: "Flint",
+            street_address: "201 S Main St",
+            city: "Plymouth",
             state: "MI",
-            zip: "48502",
+            zip: "48170",
           }
 
           put :update, params: { step: valid_params }
 
           current_app.reload
 
-          expect(step.street_address).to eq valid_params.fetch(:street_address)
-          expect(step.city).to eq valid_params.fetch(:city)
-          expect(step.state).to eq valid_params.fetch(:state)
           expect(step.zip).to eq valid_params.fetch(:zip)
-          expect(step.county).to eq("Genesee")
+          expect(step.county).to eq("Wayne")
         end
       end
 
