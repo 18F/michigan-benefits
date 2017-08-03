@@ -49,4 +49,9 @@ chdir APP_ROOT do
       system!("overcommit --install")
     end
   end
+
+  step "Updating Zipcode-to-County lookup tables" do
+    system!("bin/rails zipcodes:update")
+    system!("bin/rails zipcodes:update RAILS_ENV=test")
+  end
 end

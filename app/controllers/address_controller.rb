@@ -21,6 +21,13 @@ class AddressController < StepsController
   private
 
   def step_params_with_zipcode
-    step_params.merge("county" => "Genesee")
+    step_params.merge("county" => lookup_county_from_zip)
+  end
+
+  def lookup_county_from_zip
+    ap step_params.fetch("zip")
+    ap Zipcode.find_by_code(step_params.fetch("zip"))
+
+    Zipcode.find_by_code(step_params.fetch("zip"))
   end
 end
