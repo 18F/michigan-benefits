@@ -8,7 +8,6 @@ class HomePage < Page
   end
 
   def submit
-    sleep 2
     click_on "Create An Account"
   end
 end

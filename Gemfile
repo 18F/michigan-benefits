@@ -19,7 +19,7 @@ gem "puma"
 gem "rails", "~> 5.1"
 gem "responders"
 gem "sass-rails", "~> 5.0"
-gem "selenium-webdriver"
+gem "selenium-webdriver", "3.4.3"
 gem "sfax",
   git: "https://github.com/codeforamerica/sfax",
   ref: "da88847faaf5ab51255e4d7e47d76493d05113b1"
