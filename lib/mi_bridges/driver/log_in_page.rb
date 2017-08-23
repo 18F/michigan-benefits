@@ -1,0 +1,26 @@
+# frozen_string_literal: true
+
+module MiBridges
+  class Driver
+    class LogInPage < BasePage
+      def initialize(user_id, password)
+        @user_id = user_id
+        @password = password
+        Capybara.default_driver = :chrome
+      end
+
+      def fill_in_required_fields
+        fill_in "User ID", with: user_id
+        fill_in "Password", with: password
+      end
+
+      def submit
+        click_on "User Login"
+      end
+
+      private
+
+      attr_reader :user_id, :password
+    end
+  end
+end
