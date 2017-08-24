@@ -2,7 +2,7 @@
 
 module MiBridges
   class Driver
-    class BenefitsSelector < BasePage
+    class BenefitsSelectorPage < BasePage
       def fill_in_required_fields
         click_id("#requestFoodShare")
         click_id("#isAuthorized_N")

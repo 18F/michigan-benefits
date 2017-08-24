@@ -35,13 +35,13 @@ module MiBridges
 
       BenefitsOverviewPage.new.next
 
-      FraudPenaltyAffidavit.new.next
+      FraudPenaltyAffidavitPage.new.next
 
-      start_page = Start.new
+      start_page = StartPage.new
       start_page.fill_in_required_fields
       start_page.next
 
-      benefits_selector = BenefitsSelector.new
+      benefits_selector = BenefitsSelectorPage.new
       benefits_selector.fill_in_required_fields
       benefits_selector.next
       benefits_selector.next

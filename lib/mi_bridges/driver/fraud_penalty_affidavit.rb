@@ -2,7 +2,7 @@
 
 module MiBridges
   class Driver
-    class FraudPenaltyAffidavit < BasePage
+    class FraudPenaltyAffidavitPage < BasePage
     end
   end
 end
