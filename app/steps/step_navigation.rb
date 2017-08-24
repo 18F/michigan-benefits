@@ -35,6 +35,7 @@ class StepNavigation
     ],
     "Preferences" => [
       PreferencesInterviewController,
+      PreferencesAnythingElseController,
     ],
     "Legal" => [
       LegalAgreementController,

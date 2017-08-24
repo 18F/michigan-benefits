@@ -28,7 +28,7 @@ RSpec.describe PreferencesInterviewController do
 
         put :update, params: { step: params }
 
-        expect(response).to redirect_to("/steps/legal-agreement")
+        expect(response).to redirect_to("/steps/anything-else")
         expect(current_app.interview_preference).to eq("telephone")
       end
     end

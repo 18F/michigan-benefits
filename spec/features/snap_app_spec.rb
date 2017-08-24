@@ -150,6 +150,11 @@ accounts?",
       click_on "Continue"
     end
 
+    on_page "What else should we know?" do
+      fill_in "Anything else?", with: "This is helpful, thank you!"
+      click_on "Continue"
+    end
+
     consent_to_terms
 
     fill_in "Your signature", with: "Jessie Tester"
@@ -248,6 +253,11 @@ accounts?",
 
     on_page "Interview Preferences" do
       choose "Telephone Interview"
+      click_on "Continue"
+    end
+
+    on_page "What else should we know?" do
+      fill_in "Anything else?", with: "This is helpful, thank you!"
       click_on "Continue"
     end
 
